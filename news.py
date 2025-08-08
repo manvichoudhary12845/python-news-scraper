@@ -45,12 +45,15 @@ seen = set()
 with open(filename, "w", encoding="utf-8") as file:
     for source, headlines in news_data.items():
         file.write(f"\n===== {source} =====\n")
+        print(f"\n===== {source} =====")
         count = 0
         for headline in headlines:
             if headline not in seen:
                 seen.add(headline)
                 count += 1
                 file.write(f"{count}. {headline}\n")
+                print(f"{count}. {headline}")
         print(f"✅ {source}: {count} headlines saved")
 
 print(f"\nAll headlines saved to '{filename}'")
+
